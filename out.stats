@@ -3,7 +3,7 @@ code size summary per package:
 5mjpZR7E0lJ11826Io70iT:  131621
 Gm3DcwSuiMWJO89TulH9T1:  2152
 IwZTMSe3Ivv9yhoBZv26Oz:  429
-K0d86YrFTPVHDG8f2hkJsO:  219830
+K0d86YrFTPVHDG8f2hkJsO:  219829
 L9DNYpQqFEEG6Irhz79OYV:  5023
 aeson_JVzbBMTMmQ32nxHUK3Dk9p:33279
 base:                    588944
@@ -56,7 +56,7 @@ K0d86YrFTPVHDG8f2hkJsO
     PixEditor.Grid.Transform:           64709
     PixEditor.Grid.Zipper:              4262
     PixEditor.View:                     73778
-    PixEditor.View.Action:              36377
+    PixEditor.View.Action:              36376
     PixEditor.View.Model:               14064
 
 L9DNYpQqFEEG6Irhz79OYV

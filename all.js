@@ -125935,7 +125935,7 @@ function h$$a18()
 function h$$a17()
 {
   h$bh();
-  var a = h$ustra("..\/image\/spectrum.jpg");
+  var a = h$ustra(".\/image\/spectrum.jpg");
   h$l2(a, h$ghcjszu7b01A0aGNCoHSoxWaQfJsmZCDataziJSStringzizdfIsStringJSString);
   return h$ap_1_1_fast();
 };
