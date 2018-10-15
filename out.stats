@@ -1,9 +1,9 @@
 code size summary per package:
 
-5mjpZR7E0lJ11826Io70iT:  129713
+5mjpZR7E0lJ11826Io70iT:  130671
 Gm3DcwSuiMWJO89TulH9T1:  2152
 IwZTMSe3Ivv9yhoBZv26Oz:  429
-K0d86YrFTPVHDG8f2hkJsO:  234547
+K0d86YrFTPVHDG8f2hkJsO:  243707
 L9DNYpQqFEEG6Irhz79OYV:  5023
 aeson_JVzbBMTMmQ32nxHUK3Dk9p:33279
 base:                    656690
@@ -31,7 +31,7 @@ code size per module:
     Miso.Event.Types:                   21748
     Miso.FFI:                           10610
     Miso.Html.Element:                  4290
-    Miso.Html.Event:                    2710
+    Miso.Html.Event:                    3668
     Miso.Html.Internal:                 26475
     Miso.Html.Property:                 5244
     Miso.String:                        102
@@ -50,14 +50,14 @@ IwZTMSe3Ivv9yhoBZv26Oz
     Control.Comonad:                    429
 
 K0d86YrFTPVHDG8f2hkJsO
-    PixEditor.Foreign:                  7409
+    PixEditor.Foreign:                  7728
     PixEditor.Foreign.CanvasBS:         12156
     PixEditor.Grid.Data:                7075
     PixEditor.Grid.Transform:           64709
     PixEditor.Grid.Zipper:              4262
-    PixEditor.View:                     88496
-    PixEditor.View.Action:              36376
-    PixEditor.View.Model:               14064
+    PixEditor.View:                     89239
+    PixEditor.View.Action:              43480
+    PixEditor.View.Model:               15058
 
 L9DNYpQqFEEG6Irhz79OYV
     Safe:                               5023
@@ -190,5 +190,5 @@ vecto_DeaUpJs6ZtbBhz15yBYLWJ
 
 
 
-packed metadata: 326759
+packed metadata: 328501
 
