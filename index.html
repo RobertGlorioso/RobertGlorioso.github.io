@@ -8,5 +8,15 @@
   </head>
   <body>
   </body>
-  <script language="javascript" src="runmain.js" defer></script>
+  <script>
+  document.onload(function() {
+    var ss = document.createElement("script");
+    ss.src = "runmain.js";
+    ss.type = "text/javascript";
+    document.getElementsByTagName("head")[0].appendChild(ss);
+  });
+  </script>
+  <a href="proj/sound.html">visit the sound page</a>
+
+  <!--><script language="javascript" src="runmain.js" defer></script><!-->
 </html>
