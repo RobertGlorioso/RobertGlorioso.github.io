@@ -66,36 +66,37 @@
 	
 	let pp = document.querySelector("#debug");
 	document.getElementById("effects").addEventListener("change", function(d) {
-		const selected = document.querySelectorAll('select option:checked');
+		const selected = document.querySelectorAll('#effects option:checked');
 		const values = Array.from(selected).map(el => el.value);
 		Array.from(document.getElementById("effects-ui").children).forEach( function(c) { c.remove() } );
 	  values.forEach( function (i) { 
 	    Array.from(Object.getOwnPropertyNames(effects[i].get())).forEach( function(j) {
 		  //pp.innerHTML = typeof (effects[i].get())[j];
-		  const s = document.createElement("tone-slider");
-		  s.setAttribute("Label", i + " " + j);
-		  s.setAttribute("id", i + j);
-		  
-		  const o = new Object;
-		  s.addEventListener("input", (l) => {
-		      
-				if(l.target.value == l.target.max) {l.target.max += 1 };
-				if(l.target.value == l.target.min) {l.target.min -= 1 };
-		     /* try {
-			  o[j] = l.target.value;
-			  effects[i].set(o);
-		      } catch(er) {
-			  */
-			  try {
-			      o[j] = parseInt(l.target.value);
-			      effects[i].set(o)
-			  } catch(err) {
-			      o[j] = parseFloat(l.target.value / 100);
-			      effects[i].set(o);
-			  }
-		    //  }
-		  });
-		  document.getElementById("effects-ui").appendChild(s); });
+				const s = document.createElement("tone-slider");
+				s.setAttribute("Label", i + " " + j);
+				s.setAttribute("id", i + j);
+				
+				const o = new Object;
+				s.addEventListener("input", (l) => {
+						
+					if(l.target.value == l.target.max) {l.target.max += 1 };
+					if(l.target.value == l.target.min) {l.target.min -= 1 };
+					/* try {
+					o[j] = l.target.value;
+					effects[i].set(o);
+						} catch(er) {
+					*/
+					try {
+							o[j] = parseInt(l.target.value);
+							effects[i].set(o)
+					} catch(err) {
+							o[j] = parseFloat(l.target.value / 100);
+							effects[i].set(o);
+					}
+					//  }
+				});
+		  	document.getElementById("effects-ui").appendChild(s);
+			});
 	    ui({
 				//name: i,
 				tone: effects[i],
@@ -135,91 +136,92 @@
 	//let noiseSynth = synths.NoiseSynth.connect(merge,0,1);
 	//let pluckSynth = synths.PluckSynth.connect(merge,0,0);
 	let monoSynth = synths.MonoSynth.connect(merge,0,1);
+	//begin updates to the synth
 	document.getElementById("synthsp").addEventListener("change", function(d) {
-	let i = d.target.value;
-	//pp.innerHTML = JSON.stringify(synths[i.target.value].get());
-	Array.from(document.getElementById("synths-ui").children).forEach( function(c) { c.remove() } );
-	const sd = document.createElement("tone-drawer");
-	const ssds = [];
-	Array.from(Object.getOwnPropertyNames(synths[i].get())).forEach( function(j) {
-		let sj = synths[i].get()[j];
-		// pp.innerHTML += typeof(sj);
-		if (typeof( sj ) === 'object' && !Array.isArray(sj) && sj !== null) {
-		  const ssd = document.createElement("tone-folder");
-		  ssd.setAttribute("Name", j);
-		  ssd.setAttribute("open", false);
-		  ssd.open = false;
-		  Array.from(Object.getOwnPropertyNames(sj)).forEach( function(k) {
-		    if(typeof(sj[k]) === 'number') {
-			  
-			  const s = document.createElement("tone-slider");
-			  s.setAttribute("Label", k);
-			  s.setAttribute("id", k);
-			  
-			  const o = new Object;
-			  const oj = new Object;
-			  s.addEventListener("input", (l) => {
-			      
-			    if(l.target.value == l.target.max) {l.target.max += 1 };
-			    if(l.target.value == l.target.min) {l.target.min -= 1 };
-			    try {
-				  	oj[k] = l.target.value;
-				  	o[j] = oj;
-				  	synths[i].set(o);
-			    } catch(er) {
-				  	pp.innerHTML += er;
-				  try {
-				      oj[k] = parseInt(l.target.value);
-				      o[j] = oj;
-				      synths[i].set(o)
-				  } catch(err) {
-				      oj[k] = parseFloat(l.target.value / 100);
-				      o[j] = oj;
-				      synths[i].set(o);
-				  }
-			    }
-			  });
-			  ssd.appendChild(s);
-		    }
-		  });
-		  sd.appendChild(ssd);
-	      }else{
-	      if(typeof(sj) === 'number') {
-	      	const s = document.createElement("tone-slider");
-	      	s.setAttribute("Label", i + " " + j);
-	      	s.setAttribute("id", i + j);
-		  
-	      	const o = new Object;
-	      	s.addEventListener("input", (l) => {
-		      
-		  		if(l.target.value == l.target.max) {l.target.max += 1 };
-		  		if(l.target.value == l.target.min) {l.target.min -= 1 };
-		  		try {
-		      		o[j] = l.target.value;
-		      		synths[i].set(o);
-		  		} catch(er) {
-			  
-			  	try {
-			      o[j] = parseInt(l.target.value);
-			      synths[i].set(o)
-			  	} catch(err) {
-			    	  o[j] = parseFloat(l.target.value / 100);
-			    	  synths[i].set(o);
-			  	}
-		    	}
-	      	});
+		let i = d.target.value;
+		//pp.innerHTML = JSON.stringify(synths[i.target.value].get());
+		Array.from(document.getElementById("synths-ui").children).forEach( function(c) { c.remove() } );
+		const sd = document.createElement("tone-drawer");
+		const ssds = [];
+		Array.from(Object.getOwnPropertyNames(synths[i].get())).forEach( function(j) {
+			let sj = synths[i].get()[j];
+			// pp.innerHTML += typeof(sj);
+			if (typeof( sj ) === 'object' && !Array.isArray(sj) && sj !== null) {
+				const ssd = document.createElement("tone-folder");
+				ssd.setAttribute("Name", j);
+				ssd.setAttribute("open", false);
+				ssd.open = false;
+				Array.from(Object.getOwnPropertyNames(sj)).forEach( function(k) {
+					if(typeof(sj[k]) === 'number') {
+					
+						const s = document.createElement("tone-slider");
+						s.setAttribute("Label", k);
+						s.setAttribute("id", k);
+					
+						const o = new Object;
+						const oj = new Object;
+						s.addEventListener("input", (l) => {
+							
+							if(l.target.value == l.target.max) {l.target.max += 1 };
+							if(l.target.value == l.target.min) {l.target.min -= 1 };
+							try {
+								oj[k] = l.target.value;
+								o[j] = oj;
+								synths[i].set(o);
+							} catch(er) {
+							// pp.innerHTML += er;
+								try {
+									oj[k] = parseInt(l.target.value);
+									o[j] = oj;
+									synths[i].set(o)
+								} catch(err) {
+									oj[k] = parseFloat(l.target.value / 100);
+									o[j] = oj;
+									synths[i].set(o);
+								}
+							}
+						});
+						ssd.appendChild(s);
+					}
+				});
+				sd.appendChild(ssd);
+			} else { 
+				if(typeof(sj) === 'number') {
+					const s = document.createElement("tone-slider");
+					s.setAttribute("Label", i + " " + j);
+					s.setAttribute("id", i + j);
+			
+					const o = new Object;
+					s.addEventListener("input", (l) => {
+					
+						if(l.target.value == l.target.max) {l.target.max += 1 };
+						if(l.target.value == l.target.min) {l.target.min -= 1 };
+						try {
+							o[j] = l.target.value;
+							synths[i].set(o);
+						} catch(er) {				
+							try {
+								o[j] = parseInt(l.target.value);
+								synths[i].set(o)
+							} catch(err) {
+								o[j] = parseFloat(l.target.value / 100);
+								synths[i].set(o);
+							}
+						}
+					});
 
-	      sd.appendChild(s);
-	      }}
-		
-	  	});
+					sd.appendChild(s);
+				}
+			}
+			
+	  });
+
+
 		let myfft = new Tone.FFT()
 		merge.connect(myfft);
 		fft({ tone: myfft, parent: sd })
 
 	  document.getElementById("synths-ui").appendChild(sd);
-	  
-
 
 	  ui({
 		  //name: i,
@@ -234,18 +236,21 @@
       
   let seqRow = 1;
   let record = false;
-	let seqKeys = {"row1": { 'synth': duoSynth, "notes":  new Set},
+	let seqKeys = {
+		  "row1": { 'synth': duoSynth, "notes":  new Set},
 			"row2": { 'synth': duoSynth, "notes":  new Set},
 			"row3": { 'synth': currentSynth, "notes":  new Set},
 			"row4": { 'synth': currentSynth, "notes":  new Set} 
 		};
      
-      document.addEventListener("click", (d) => {
+  document.addEventListener("click", (d) => {
 	  let s = document.getSelection();
 	  let dd = document.querySelectorAll("tone-number");
 	  //pp.innerHTML = null;
-      });
-      Object.getOwnPropertyNames(effects).forEach(
+  });
+  
+	//begin effects updates
+	Object.getOwnPropertyNames(effects).forEach(
 	  function (e) { 
 	      const o = document.createElement("option");
 	      o.setAttribute("Value",e); 
@@ -253,37 +258,35 @@
 	      
 	      return document.getElementById("effects").appendChild(o);
 	  }
-      );
-      Object.getOwnPropertyNames(synths).forEach(
+  );
+  Object.getOwnPropertyNames(synths).forEach(
 	  function (e) { 
-	      const o = document.createElement("option");
-	      o.setAttribute("Value",e); 
-	      o.innerText = e;
-	      return document.getElementById("synthsp").appendChild(o);
-	      
+			const o = document.createElement("option");
+			o.setAttribute("Value",e); 
+			o.innerText = e;
+			return document.getElementById("synthsp").appendChild(o);  
 	  }
-      );
-      Object.getOwnPropertyNames(synths).forEach(
+  );
+  Object.getOwnPropertyNames(synths).forEach(
 	  function (e) { 
-	      const o = document.createElement("option");
-	      o.setAttribute("Value",e); 
-	      o.innerText = e;
-	      
-	      return document.getElementById("synths").appendChild(o);
+			const o = document.createElement("option");
+			o.setAttribute("Value",e); 
+			o.innerText = e;
+			
+			return document.getElementById("synths").appendChild(o);
 	  }
-      );
-      document.querySelector("#recall").addEventListener("click", (ca) => {
-        currentSynth.set(JSON.parse(localStorage.getItem('synth')));
+  );
+  document.querySelector("#recall").addEventListener("click", (ca) => {
+    currentSynth.set(JSON.parse(localStorage.getItem('synth')));
 		osc.set(JSON.parse(localStorage.getItem('lfo')));
 		sequencerSynth.set(JSON.parse(localStorage.getItem('synth2')));
 		amSynth.set(JSON.parse(localStorage.getItem('synth3')));
 		duoSynth.set(JSON.parse(localStorage.getItem('synth4')));
 		metalSynth.set(JSON.parse(localStorage.getItem('synth5')));
 		pluckSynth.set(JSON.parse(localStorage.getItem('synth6')));
-		monoSynth.set(JSON.parse(localStorage.getItem('synth7')));
-	  
-      });
-      document.querySelector("#store").addEventListener("click", (ca) => {
+		monoSynth.set(JSON.parse(localStorage.getItem('synth7')));	  
+  });
+  document.querySelector("#store").addEventListener("click", (ca) => {
 		pp.innerHTML = JSON.stringify(currentSynth.get());
 		localStorage.setItem('synth',  JSON.stringify(currentSynth.get()));
 		localStorage.setItem('lfo',  JSON.stringify(osc.get()));
@@ -293,96 +296,87 @@
 		localStorage.setItem('synth5', JSON.stringify(metalSynth.get()));
 		localStorage.setItem('synth6', JSON.stringify(pluckSynth.get()));
 		localStorage.setItem('synth7', JSON.stringify(monoSynth.get()));
-      });
+  });
       
-      document.querySelector('#eff1').addEventListener("change", (cb) => {
-          const selectedEf = document.querySelectorAll('#effects option:checked');
-          const valuesEf = Array.from(selectedEf).map(el => el.value);
-	  			const selectedSy = document.querySelectorAll('#synths option:checked');
-          const valuesSy = Array.from(selectedSy).map(el => el.value);
-          if(cb.target.checked) {
-	      		valuesEf.forEach( (e) => {
-         
-		  				valuesSy.forEach( (s) => {
-		  
-		      			osc.disconnect(effects[e].toDestination());
-		  
-		      		synths[s].connect(effects[e].toDestination());
-		  			});
-		  
-	      });
-	      document.getElementById("effects").disabled = true;
-	  } else {
-	      valuesEf.forEach( (e) => {
-		 
-		  	valuesSy.forEach( (s) => {
-                  
-				osc.disconnect(effects[e].toDestination());
-				
-				synths[s].disconnect(effects[e].toDestination());
-			})
-	      });
-	      document.getElementById("effects").disabled = false;
-	  }
-      });
+	document.querySelector('#eff1').addEventListener("change", (cb) => {
+		const selectedEf = document.querySelectorAll('#effects option:checked');
+		const valuesEf = Array.from(selectedEf).map(el => el.value);
+		const selectedSy = document.querySelectorAll('#synths option:checked');
+		const valuesSy = Array.from(selectedSy).map(el => el.value);
+		if(cb.target.checked) {
+			valuesEf.forEach( (e) => {
+				valuesSy.forEach( (s) => {
+					//osc.disconnect(effects[e].toDestination());
+					synths[s].connect(effects[e].toDestination());
+				});
+			});
+			document.getElementById("effects").disabled = true;
+		} else {
+			valuesEf.forEach( (e) => {		 
+				valuesSy.forEach( (s) => {
+					//osc.disconnect(effects[e].toDestination());
+					synths[s].disconnect(effects[e].toDestination());
+				})
+			});
+			document.getElementById("effects").disabled = false;
+		}
+	});
       
-      document.querySelector('#seq1').addEventListener("change", (cc) => {
+  document.querySelector('#seq1').addEventListener("change", (cc) => {
 	  if(cc.target.checked) {
 	      Tone.Transport.start();
 	  } else {
 	      Tone.Transport.stop();
 	  }
-      });
+  });
 
-      document.querySelector('#lfo1').addEventListener("change", (cd) => {
-          if(cd.target.checked) {
-              osc.start();
-          } else {
-              osc.stop();
-          }
-      });
+	document.querySelector('#lfo1').addEventListener("change", (cd) => {
+			if(cd.target.checked) {
+					osc.start();
+			} else {
+					osc.stop();
+			}
+	});
       
-      document.querySelector('#recColumn').addEventListener("change", (cd) => {
-          if(cd.target.checked) {
-              record = true; 
-          } else {
-              record = false;
-          }
-      });
-      
-      document.querySelector("#row1").addEventListener("click", () => {if(record) { document.querySelector("#row1").style.background = 'green'; document.querySelector("#row2").style.background = 'red'; document.querySelector("#row3").style.background = 'red'; document.querySelector("#row4").style.background = 'red'; seqRow = 1 }});
-      document.querySelector("#row2").addEventListener("click", () => {if(record) { document.querySelector("#row2").style.background = 'green'; document.querySelector("#row1").style.background = 'red'; document.querySelector("#row3").style.background = 'red'; document.querySelector("#row4").style.background = 'red'; seqRow = 2 }});
-      document.querySelector("#row3").addEventListener("click", () => {if(record) { document.querySelector("#row3").style.background = 'green'; document.querySelector("#row1").style.background = 'red'; document.querySelector("#row2").style.background = 'red'; document.querySelector("#row4").style.background = 'red'; seqRow = 3 }});
-      document.querySelector("#row4").addEventListener("click", () => {if(record) { document.querySelector("#row4").style.background = 'green'; document.querySelector("#row1").style.background = 'red'; document.querySelector("#row2").style.background = 'red'; document.querySelector("#row3").style.background = 'red'; seqRow = 4 }});
-      
-      document.querySelector("#seqTempo").addEventListener("input", (e) => Tone.Transport.bpm.value = parseFloat(e.target.value));
-
-      piano({
-				parent: document.querySelector("#content"),
-				polyphonic: true,
-				noteon: note => {vp = document.getElementById("synthsp").value; if(record) { seqKeys["row" + seqRow].notes.add(note.name);  seqKeys["row" + seqRow].synth = synths[vp]; synths[vp].triggerAttackRelease(note.name, "16t", Tone.now());  } else { synths[vp].triggerAttack(note.name); } },
-				noteoff: note => { synths[vp].triggerRelease(note.name) }
-      });
-      /*piano({
-        parent: document.querySelector("#content"),
-        polyphonic: false,
-        noteon: note => {vp = document.getElementById("synthsp").value; if(record) { seqKeys["row" + seqRow].notes.add(note.name);seqKeys["row" + seqRow].synth = synths[vp]; synths[vp].triggerAttackRelease(note.name, "16t", Tone.now());  } else { synths[vp].triggerAttackRelease(note.name,"4n", Tone.now()); } },
-        //noteoff: note => { synths[vp].triggerRelease(note.name) }
-      });*/
-      
-      document.querySelector("tone-step-sequencer").addEventListener("trigger", ({ detail }) => {
-				let thisSynth = seqKeys["row" + (detail.row + 1)].synth;
-				let vv = Tone.Transport.position.split(":")[2] > 1;
-				//if(vv) { osc.frequency.rampTo(44,1.5) } else { osc.frequency.rampTo(22,0.5) }
-				
-				let n = Array.from(seqKeys["row" + (detail.row +1)].notes);
-				if(thisSynth.name == 'MonoSynth') { n = n[0]; }
-				thisSynth.triggerAttackRelease(n, "8n", Tone.now());
-      });
-      
-      
-    </script>
-    <script></script>
+	document.querySelector('#recColumn').addEventListener("change", (cd) => {
+			if(cd.target.checked) {
+					record = true; 
+			} else {
+					record = false;
+			}
+	});
 	
+	document.querySelector("#row1").addEventListener("click", () => {if(record) { document.querySelector("#row1").style.background = 'green'; document.querySelector("#row2").style.background = 'red'; document.querySelector("#row3").style.background = 'red'; document.querySelector("#row4").style.background = 'red'; seqRow = 1 }});
+	document.querySelector("#row2").addEventListener("click", () => {if(record) { document.querySelector("#row2").style.background = 'green'; document.querySelector("#row1").style.background = 'red'; document.querySelector("#row3").style.background = 'red'; document.querySelector("#row4").style.background = 'red'; seqRow = 2 }});
+	document.querySelector("#row3").addEventListener("click", () => {if(record) { document.querySelector("#row3").style.background = 'green'; document.querySelector("#row1").style.background = 'red'; document.querySelector("#row2").style.background = 'red'; document.querySelector("#row4").style.background = 'red'; seqRow = 3 }});
+	document.querySelector("#row4").addEventListener("click", () => {if(record) { document.querySelector("#row4").style.background = 'green'; document.querySelector("#row1").style.background = 'red'; document.querySelector("#row2").style.background = 'red'; document.querySelector("#row3").style.background = 'red'; seqRow = 4 }});
+	
+	document.querySelector("#seqTempo").addEventListener("input", (e) => Tone.Transport.bpm.value = parseFloat(e.target.value));
+
+	piano({
+		parent: document.querySelector("#content"),
+		polyphonic: true,
+		noteon: note => {vp = document.getElementById("synthsp").value; if(record) { seqKeys["row" + seqRow].notes.add(note.name);  seqKeys["row" + seqRow].synth = synths[vp]; synths[vp].triggerAttackRelease(note.name, "16t", Tone.now());  } else { synths[vp].triggerAttack(note.name); } },
+		noteoff: note => { synths[vp].triggerRelease(note.name) }
+	});
+	/*piano({
+		parent: document.querySelector("#content"),
+		polyphonic: false,
+		noteon: note => {vp = document.getElementById("synthsp").value; if(record) { seqKeys["row" + seqRow].notes.add(note.name);seqKeys["row" + seqRow].synth = synths[vp]; synths[vp].triggerAttackRelease(note.name, "16t", Tone.now());  } else { synths[vp].triggerAttackRelease(note.name,"4n", Tone.now()); } },
+		//noteoff: note => { synths[vp].triggerRelease(note.name) }
+	});*/
+      
+	document.querySelector("tone-step-sequencer").addEventListener("trigger", ({ detail }) => {
+		let thisSynth = seqKeys["row" + (detail.row + 1)].synth;
+		let vv = Tone.Transport.position.split(":")[2] > 1;
+		//if(vv) { osc.frequency.rampTo(44,1.5) } else { osc.frequency.rampTo(22,0.5) }
+		
+		let n = Array.from(seqKeys["row" + (detail.row +1)].notes);
+		if(thisSynth.name == 'MonoSynth') { n = n[0]; }
+		thisSynth.triggerAttackRelease(n, "8n", Tone.now());
+	});
+      
+      
+</script>	
 
 </body></html>
