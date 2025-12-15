@@ -1,0 +1,265 @@
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/picocss/1.4.4/pico.min.css");
+
+/**** pico style overrides *****/
+
+/* header and footer */
+header, footer {
+    padding: 0px !important;
+}
+
+header {
+    margin-bottom: 25px;
+}
+
+header p, footer p {
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    padding: 7px;
+}
+
+header p {
+    top: 7px;
+}
+
+header a, footer a {
+    text-decoration: none;
+}
+
+#skip a {
+    display: block;
+    position: absolute;
+    left: -999px;
+    top: -999px;
+    padding: 5px;
+}
+
+#skip a:focus {
+    top: 0;
+    left: 0;
+}
+
+footer p {
+    padding-bottom: 7px;
+}
+
+/* font size, line heights */
+@media (min-width: 990px) {
+    :root {
+        --font-size: 18px;
+    }
+}
+
+p, li {
+    line-height: 1.75;
+}
+
+h1 {
+    font-size: 2.1rem;
+}
+
+/* link underlines for a11y */
+a {
+    text-decoration: underline;
+}
+
+/* focus indicator for a11y */
+[data-theme="dark"] a:focus, [data-theme="dark"] button:focus {
+    outline: 2px solid rgba(225,225,225,0.5);
+    border-radius: 2px;
+}
+
+[data-theme="light"] a:focus, [data-theme="light"] button:focus {
+    outline: 2px solid rgba(25,25,25,0.5);
+    border-radius: 2px;
+}
+
+/* adjust contain widths */
+.container {
+    padding-top: 0px;
+}
+
+@media (max-width: 1199px) {
+    .container {
+        max-width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px; 
+    }
+}
+
+/* adjust heading margins */
+h1 {
+    margin-top: 30px !important;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* adjust lists */
+
+ul ul, ol ol {
+    margin-top: 10px;
+    padding-left: 25px;
+}
+
+/* adjust blockquote */
+
+blockquote p {
+    margin-bottom: 0px;
+}
+
+/* adjust tables */
+
+th {
+    font-weight: 700;
+}
+
+/* adjust code */
+code {
+    margin-top: 2px;
+    padding: 4px;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* dark/light mode toggle button */
+#light-toggle {
+    padding: 0px;
+    display: inline-block;
+    width: auto;
+    background: none;
+    border: none;
+    font-size: 16px;
+}
+
+/* increase color contrast for a11y */
+:root {
+    --primary: #13b1e5 !important;
+}
+
+a {
+    background-color: transparent;
+}
+
+[data-theme="light"] a {
+    color: #0c779a;
+}
+
+[data-theme="light"] code {
+    color: rgb(80, 105, 115);
+}
+
+[data-theme="dark"] code {
+    color: rgb(155, 170, 170);
+}
+
+[data-theme="light"] pre code {
+    color: initial;
+}
+
+[data-theme="dark"] pre code {
+    color: initial;
+}
+
+[data-theme="light"] a code {
+    color: #80556b !important;
+}
+
+[data-theme="dark"] a code {
+    color: #b77a99 !important;
+}
+
+[data-theme="light"] .hljs {
+    background: #fcfcfc;
+}
+
+[data-theme="dark"] .hljs {
+    background: #0d1418;
+}
+
+[data-theme="light"] .hljs-comment, .hljs-deletion, .hljs-meta {
+    color: #555;
+}
+
+[data-theme="dark"] .hljs-comment, .hljs-deletion, .hljs-meta {
+    color: #ccc;
+}
+
+[data-theme="dark"] #skip a {
+    background: #11191f; 
+}
+
+[data-theme="light"] #skip a {
+    background: #ffffff; 
+}
+
+[data-theme="dark"] figcaption {
+    color: #bbb;
+}
+
+[data-theme="light"] figcaption {
+    color: #444;
+}
+
+/* non-md elements / classes */
+figure {
+    display: inline-block;
+    padding: 5px;
+}
+
+[data-theme="light"] figure {
+    border: 1px solid #ccc;
+}
+
+[data-theme="dark"] figure {
+    border: 1px solid #333;
+}
+
+figcaption {
+    padding: 2px !important;
+    text-align: center;
+    font-size: 16px;
+}
+
+.figure-right, .img-right {
+    display: block;
+    float: right;
+    max-width: 50%;
+    padding: 5px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.figure-left, .img-left {
+    display: block;
+    float: left;
+    max-width: 50%;
+    padding: 5px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 700px) {
+    .figure-right, .img-right, .figure-left, .img-left {
+        float: none;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
