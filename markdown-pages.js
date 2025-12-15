@@ -1,5 +1,3 @@
-
-
 var script = document.createElement('script');
 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js';
 document.head.appendChild(script);
