@@ -1,4 +1,4 @@
-# Robert's Page – _for code posts and projects_
+# Robert's Page – _for code, posts, and projects_
 
 ## Table of Contents
 
@@ -13,3 +13,5 @@
 ## Posts
 
 ## Contact
+
+
