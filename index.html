@@ -7,7 +7,6 @@
 	<meta name="description" content="robert's page">
 	<title>robert's page</title>
   <link rel="stylesheet" href="assets/user-styles.css" />
-	<!---- adding markdown-page.js file ---->
 </head>
 
 <body>
@@ -62,11 +61,11 @@
                   }, 50);
               }
           } else if (client.status == 404) {
-              //window.location.href = '404.html';
+              window.location.href = '404.html';
           }
       }
       client.send();
-
+/*
       var client1 = new XMLHttpRequest();
       client1.open('GET', "header.md");
       client1.onreadystatechange = function() {
@@ -103,7 +102,7 @@
               }
           } 
       }
-      client2.send();
+      client2.send();*/
   };
 </script>
   <p>markdown page by <a href="https://github.com/dandalpiaz/markdown-pages.js">dandalpiaz</a></p>
