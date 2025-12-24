@@ -23,7 +23,7 @@ Virtualization:
 - Routing (vRF): tables (RIB/FIB), stacking interfaces (like vLAN), context aware services
 - virtual machines: VMware, hypervisor, vMotion, High Availablity, fault tolerance, DRS, DPM
 
-![hsrp lab](/assets/img/ccna1/hot_swap_configs.png)
+![vPC lab](/assets/img/ccna1/vpc_configs.png)
 
 # CMLLAB
 
