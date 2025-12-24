@@ -27,6 +27,8 @@ tags :
 
 ## Code examples
 
+This is one of the blazor C# code modules being tested in the app. The counter will show a display of the current count and two buttons control an amount to increment the counter.
+
 ```html
 <PageTitle>Counter</PageTitle>
 
@@ -36,22 +38,11 @@ tags :
 
 <button id="add10" class="btn btn-primary" @onclick="IncrementCount">Click me add 10</button>
 <button id="addone" class="btn btn-primary" @onclick="() => currentCount++">Click me add one</button>
-
-
 ```
 
 ```csharp
 @page "/counter"
 @rendermode InteractiveServer
-
-<PageTitle>Counter</PageTitle>
-
-<h1>Counter</h1>
-
-<p id="count" role="status">Current Count: @currentCount</p>
-
-<button id="add10" class="btn btn-primary" @onclick="IncrementCount">Click me add 10</button>
-<button id="addone" class="btn btn-primary" @onclick="() => currentCount++">Click me add one</button>
 
 @code {
     private int currentCount = 0;
@@ -64,4 +55,34 @@ tags :
         currentCount += IncrementAmount;
     }
 }
+```
+
+Here is the code to test this module:
+
+```csharp
+IWebDriver driver = new ChromeDriver();
+driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(3500);
+
+driver.Navigate().GoToUrl("http://localhost:5077/");
+
+var title = driver.Title;
+Assert.AreEqual("Counter", title);
+
+driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(1500);
+
+var countBox = driver.FindElement(By.Id("count"));
+var count1Button = driver.FindElement(By.Id("addone"));
+var count10Button = driver.FindElement(By.Id("add10"));
+
+var countText = countBox.Text;
+Assert.AreEqual("Current Count: 0", countText);
+count1Button.Click();
+count1Button.Click();
+for (var i = 0; i < 4; i++)
+{
+    count10Button.Click();
+}
+var countTextAgain = countBox.Text;
+
+Assert.AreEqual("Current Count: 42", countTextAgain);
 ```
