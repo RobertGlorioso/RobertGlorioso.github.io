@@ -9,7 +9,6 @@
 ### Projects
 
 - [Tone.js demo](/radio/examples/tonetest.html) - _a little synth and sequencer demo build on Tone.js_
-
 - [Pixel Editor](/paint/index.html) - _a mini pixel art editor in a single page built on GHCJS_
 
 
@@ -17,6 +16,7 @@
 
 - [A VS + Selenium guide](?page=vsselenium) - _This guide is how to set up Visual Studio IDE alongside Selenium webdriver for automated web app testing_
 - [CCNA week 1](?page=ccna1) - _Studying Cisco dev/net systems CCNA week 1_
+- [CCNA week 2](?page=ccna2) - _Studying Cisco dev/net systems CCNA week 2_
 
 ### Contact
 email: grousebert@gmail.com
