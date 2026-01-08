@@ -17,7 +17,7 @@
 - [A VS + Selenium guide](?page=vsselenium) - _This guide is how to set up Visual Studio IDE alongside Selenium webdriver for automated web app testing_
 - [CCNA week 1](?page=ccna1) - _Studying Cisco dev/net systems CCNA week 1_
 - [CCNA week 2](?page=ccna2) - _Studying Cisco dev/net systems CCNA week 2_
-
+- [CCNA week 3](?page=ccna3) - _Studying Cisco dev/net systems CCNA week 3_
 ### Contact
 email: grousebert@gmail.com
 
