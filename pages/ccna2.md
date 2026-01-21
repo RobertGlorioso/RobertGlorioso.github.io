@@ -1,10 +1,10 @@
-## CCNA week 2 notes
+# CCNA week 2 notes
 
 - [Understanding Cisco Data Center Foundations | DCFNDU]( #dcfndu )
 - [Introduction to Network Simulations with Cisco Modeling Labs | CMLLAB]( #cmllab )
 - [Understanding Cisco Network Automation Essentials | DEVNAE]( #devnae )
 
-# DCFNDU
+### DCFNDU
 
 As I have plowed through the first week of the DCFNDU course I have noticed these topics aren't aligned with a lot of the CCNA topics. That is because this is more for CCNP, but no matter, I am completing this since it is free for this week. Continuing on the import topics are now data center storage, fiber channels, Cisco unified computing, and Cisco advanced services.
 
@@ -30,13 +30,13 @@ Advanced Services:
 
 ![NX-API](/assets/img/ccna2/netconf_nx_api.png)
 
-# CMLLAB
+### CMLLAB
 
 Cisco Modeling Labs provides ways to work with other users' created topologies. There are also APIs for interacting with topologies through Python and a "breakout tool" to telnet or vnc into to nodes running on the CML topology.
 
 ![telnet to a CML lab topology node](/assets/img/ccna2/telnet_cml_lab.png)
 
-# DEVNAE
+### DEVNAE
 
 There are many networking tools that share functionality across different platforms: Windows, Linux, Cisco OS (IOS/NX-OS). They can be performed manually if the right CLI command is used or can be scripted via Python or Bash or other scripting language. Further automation can be achieved on scaled infrastructure with NETCONF, RESTCONF, or gRPC tools. Model driven approaches enable these APIs to work of network protocols like HTTP(S), SSH, and TLS. Git is used for version control and a part of the CI/CD pipeline.
 

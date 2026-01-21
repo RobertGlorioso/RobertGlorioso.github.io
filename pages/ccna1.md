@@ -1,9 +1,9 @@
-### CCNA notes week 1
+# CCNA notes week 1
 - [Understanding Cisco Data Center Foundations | DCFNDU]( #dcfndu )
 - [Introduction to Network Simulations with Cisco Modeling Labs | CMLLAB]( #cmllab )
 - [Understanding Cisco Network Automation Essentials | DEVNAE]( #devnae )
 
-# DCFNDU
+### DCFNDU
 
 This course will forms the backbone of knowledge about network engineering. It is all about hardware/software functionality: data center architecture, servers, switches, routers, storage, supervisors, access redundancy, virtualizaion, fiber, NX OS. Where they operate in the data center: what OSI layer each functions at, what protocols are used for network discovery and traffic management. Also what types of model architectures used.
 
@@ -25,7 +25,7 @@ Virtualization:
 
 ![vPC lab](/assets/img/ccna1/vpc_configs.png)
 
-# CMLLAB
+### CMLLAB
 
 This course familiarizes with the Cisco Modeling Lab. A web app designed to mimick a datacenter with customizable topologies and virtual routers, switches, & servers to play with. Concepts include the CML architecture, simulation of devices (nodes) and images (OS, software), and network testing.
 
@@ -39,6 +39,6 @@ Simulator:
 
 ![cml workstation](/assets/img/ccna1/cml_workstation.png)
 
-# DEVNAE
+### DEVNAE
 
 This course introduces the concept of automating data center controls and operations via API and data models. Important for understanding the common problems in development pipelines and solutions to enhance teamwork across the developer and operations teams.

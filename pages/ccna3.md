@@ -1,22 +1,22 @@
-## CCNA week 3 notes
+# CCNA week 3 notes
 
 - [Understanding Cisco Data Center Foundations | DCFNDU]( #dcfndu )
 - [Introduction to Network Simulations with Cisco Modeling Labs | CMLLAB]( #cmllab )
 - [Understanding Cisco Network Automation Essentials | DEVNAE]( #devnae )
 - [CCNA 200-301]( #ccna )
 
-# DCFNDU
+### DCFNDU
 
 The end of this course is in sight and the last topic included the Cisco Application Centric Infrastructure which introduced another package of tools for automating networks and integrations with cloud infrastructure. The technology utilizes spine and leaf architecture to be easily scaled and monitored using APICs (Application Policy Infrastructure Controllers). Other teminology involved included policy models, EPG and contracts, VMM (virtual machine manager), and service graphs. This was a good resource for finding out about a lot of the technologies I can get involved with once I am further along in my career goal - I will focus more now on CCNA and passing the CCNA exam. I have Wendell Odom's textbook here now so I will be posting about it for the next few weeks.
 
-# CMLLAB
+### CMLLAB
 
 Discussions include the cmlutils library in Python which allows for command-line interaction with CML labs and nodes in the topology. I also practiced developing a CI/CD pipeline in gitlab with NSO container to automate testing. That I will need to revisit later since while the initial config pipeline was successful, subsequent pushes broke something.
 
 ![build pipeline with gitlab for automated testing over CML](/assets/img/ccna3/NSO%20-%20gitlab%20-%20pipeline.png)
 ![scripts for gitlab ci/cd](/assets/img/ccna3/NSO%20-%20term.png)
 
-# DEVNAE
+### DEVNAE
 
 The course continues with describing Ansible, an open source tool written in Python to orchestrate changes across networks. The YANG (yet another next generation) modelling language is also discussed. Related topics include deeper dives of NETCONF, RESTCONF, gNMI/gRPC when in use for network monitoring and the YANG suite.
 
@@ -35,7 +35,8 @@ YANG:
 ![router bgp neighbors with netconf and python](/assets/img/ccna3/bgp%20-%20netconf%20-%20python.png)
 
 ![gathering xml data with YANG suite](/assets/img/ccna3/YANG%20-%20gather%20xml%20interfaces%20data.png)
-![YANG sutie](/assets/img/ccna3/YANG%20-%20suite.png)
+
+![YANG suite](/assets/img/ccna3/YANG%20-%20suite.png)
 
 # CCNA
 
