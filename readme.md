@@ -19,6 +19,10 @@
 - [CCNA week 2](?page=ccna2) - _Studying Cisco dev/net systems CCNA week 2_
 - [CCNA week 3](?page=ccna3) - _Studying Cisco dev/net systems CCNA week 3_
 - [about the pixel editor project](?page=about-paint) - _Breakdown of an old project_
+- [CCNA week 4](?page=ccna4) - _Studying Cisco dev/net systems CCNA week 4_
+- [CCNA week 5](?page=ccna5) - _Studying Cisco dev/net systems CCNA week 5_
+
+
 
 ### Contact
 email: grousebert@gmail.com

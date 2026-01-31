@@ -4,7 +4,7 @@ This post will go over some code used in the pixel editor [paint project](/paint
 
 The mvc system needs to have a model, as it is central to the function of the app ( View <- Model <-> Controller ). The following will be the model's definition in Haskell.
 
-```
+```haskell
 type Grid =  M.Map Int JSString
 type GridStore =  M.Map JSString Grid
 data GridControl = FillSwitch | PaintSwitch | DragSwitch | NoopSwitch deriving (Eq, Show)-- changes actrions for clicking on the grid
@@ -29,7 +29,7 @@ data Model = Model { mouseCoords :: (Int, Int) --mousetracking for color picker
 I tried documenting a little bit with these comments. Some are fairly obvious: `mouseCoords`, `color`, `selected`, `pix`, and `title` would be a few. The `gridY` and `getArrows` I will have to explain some more. 
 I know I made this while deep in the weeds reading about comonads and zippers, more about that in a bit. But the main component is the grid which has the type `YY JSString`. What is that? 
 
-```
+```haskell
 data Y a = Y { _yl :: S.Seq a
              , _yc :: Maybe a
              , _yi :: Int
@@ -45,7 +45,7 @@ makeLenses ''YY
 This is could have some better documentation. It would seem I need to do some housekeeping on this project once I figure everything out. But it looks like a grid: the `Y`'s `_yl` field forms a sequence of values and the newtype `YY` would be another sequence of those `Y`s effectively formed the `grid`. So what is `_yc` and `_yi`?
 I believe more clues are found in the instances of comonad and zipper for this datatype `Y`:
 
-```
+```haskell
 instance Comonad Y where
   extract = maybe (error "cursor not on grid") id . _yc 
   duplicate y = Y (S.fromFunction (size y - 1) fn) (Just y) ( y ^. yi )
@@ -78,7 +78,7 @@ instance Zipper Y where
 
 Quite a bit there so won't go through it all. But the mystery is solved: the `_yc` corresponds to `cursor` and `_yi` to `index`. A few of these other functions seems useful in the implementation for navigating the grid. For example `resize` is used when changing the dimensions of the grid:
 
-```
+```haskell
 resizeR t@(readMay.unpack -> Nothing :: Maybe Int) = Id
 resizeR t@(readMay.unpack -> Just x :: Maybe Int)
   | 42 > x && x > 0 = RedrawGrid $ YY $ resize (Y (S.replicate e c) (Just c) 0)  (_unyy y) x
